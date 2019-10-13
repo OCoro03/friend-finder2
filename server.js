@@ -14,16 +14,16 @@ var friends = [
         name: "Orlando",
         picture: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
         scores: [
-            3,
-            4,
-            3,
-            5,
-            4,
-            3,
-            4,
-            5,
-            5,
-            3
+        3,
+        4,
+        3,
+        5,
+        4,
+        3,
+        4,
+        5,
+        5,
+        3
         ]
     }
 ];
@@ -50,7 +50,7 @@ app.get("/api/friends", function(req, res) {
     newFriend.name = newFriend.name.replace(/\s+/g, "").toLowerCase();
     
     friends.push(newFriend);
-    
+
     res.json(newFriend);
   });
 
