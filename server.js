@@ -9,6 +9,7 @@ var PORT = process.env.PORT || 808;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Variable holding friends in a database
 var friends = [
     {
         name: "Orlando",
@@ -46,7 +47,7 @@ app.get("/api/friends", function(req, res) {
   app.post("/api/friends", function(req, res) {
     
     var newFriend = req.body;
-
+    
     newFriend.name = newFriend.name.replace(/\s+/g, "").toLowerCase();
     
     friends.push(newFriend);
