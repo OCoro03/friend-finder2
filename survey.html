@@ -233,7 +233,15 @@
           $.post("/api/friends", newFriend)
             .then(function(data) {
               console.log("add.html", data);
-              alert("Adding friend...");
+              alert("Adding you to our friends DB...");
+                //another ajax call to "GET" the date from the backend
+                //here is where you can write the math logic
+                //take your newFriend and compare it to all the friends in the DB
+                //we need to build 1 loop to check all the "friends" we have in our db
+                //inside our first loop we need to write a second loop that compares all the scores from the current friend against the newFriend
+                //current friend difference
+                // $.get("/api/friends")
+                // .then(function)
             });
         });
       </script>
