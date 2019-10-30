@@ -62,42 +62,45 @@ app.get("/api/friends", function(req, res) {
   });
 
   app.post("/api/friends", function(req, res) {
-    
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDiff: Infinity
+    }
+
     var newFriend = req.body;
+    console.log(newFriend);
     
-    //////////////
-    // for(var i = 0; i < newFriend.scores.length; i++) {
-    //   newFriend.scores[i] = parseInt(newFriend.scores[i]);
-    // }
+    var userScores = newFriend.scores;
 
-    // // default friend match is the first friend but result will be whoever has the minimum difference in scores
-    // var bestFriendIndex = 0;
-    // var minimumDifference = 40;
+    // default friend match is the first friend but result will be whoever has the minimum difference in scores
+    var bestFriendIndex = 0;
+    var minimumDifference = 40;
 
-    // // in this for-loop, start off with a zero difference and compare the user and the ith friend scores, one set at a time
-    // //  whatever the difference is, add to the total difference
-    // for(var i = 0; i < friends.length; i++) {
-    //   var totalDifference = 0;
-    //   for(var j = 0; j < friends[i].scores.length; j++) {
-    //     var difference = Math.abs(newFriend.scores[j] - friends[i].scores[j]);
-    //     totalDifference += difference;
-    //   }
+    // in this for-loop, start off with a zero difference and compare the user and the ith friend scores, one set at a time
+    //  whatever the difference is, add to the total difference
+    for(var i = 0; i < friends.length; i++) {
+      var currentFriend = friends[i]
+      var totalDifference = 0;
+      for(var j = 0; j < currentFriend.scores.length; j++) {
+        var difference = Math.abs(currentFriend.scores[j] - userScores[j]);
+        totalDifference += difference;
+      }
 
-    //   // if there is a new minimum, change the best friend index and set the new minimum for next iteration comparisons
-    //   if(totalDifference < minimumDifference) {
-    //     bestFriendIndex = i;
-    //     minimumDifference = totalDifference;
-    //   }
-    // }
-    //////////////
-
-    newFriend.name = newFriend.name.replace(/\s+/g, "").toLowerCase();
+      // if there is a new minimum, change the best friend index and set the new minimum for next iteration comparisons
+      if(totalDifference <= bestMatch.friendDiff) {
+        bestMatch.name = currentFriend.name;
+        bestMatch.photo = currentFriend.photo;
+        bestMatch.friendDiff = totalDifference;
+      }
+    }
     
     friends.push(newFriend);
-
-    res.json(newFriend);
-  });
-
+    console.log(bestMatch)
+    res.json(bestMatch);
+    window.alert(bestMatch)
+  })
+  
 
 app.listen(PORT, function() {
     // Log (server-side) when our server has started

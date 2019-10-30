@@ -195,14 +195,16 @@
                     </div>
                     <br>
                     <div>
-                        <a href="/survey"><button class="btn btn-primary btn-lg btn-block" id="submit">Submit</button></a>
+                        <a href="/survey"><button class="btn btn-primary btn-lg btn-block"
+                                id="submit">Submit</button></a>
                     </div>
                 </form>
                 <hr>
 
                 <footer class="footer mt-4">
                     <div class="container">
-                        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/OCoro03/friend-finder2" target="_blank">GitHub Repo</a></p>
+                        <p><a href="/api/friends">API Friends List</a> | <a
+                                href="https://github.com/OCoro03/friend-finder2" target="_blank">GitHub Repo</a></p>
                     </div>
                 </footer>
 
@@ -211,41 +213,33 @@
     </div>
 
     <script type="text/javascript">
-        // Question: What does this code do?
-        $("#submit").on("click", function(event) {
-          event.preventDefault();
-          var newFriend = {
-            name: $("#name").val().trim(),
-            photo: $("#photo").val().trim(),
-            q1: $("#question1").val().trim(),
-            q2: $("#question2").val().trim(),
-            q3: $("#question3").val().trim(),
-            q4: $("#question4").val().trim(),
-            q5: $("#question5").val().trim(),
-            q6: $("#question6").val().trim(),
-            q7: $("#question7").val().trim(),
-            q8: $("#question8").val().trim(),
-            q9: $("#question9").val().trim(),
-            q10: $("#question10").val().trim(),
-          };
-    
-          // Question: What does this code do??
-          $.post("/api/friends", newFriend)
-            .then(function(data) {
-              console.log("add.html", data);
-              alert("Adding you to our friends DB...");
-                //another ajax call to "GET" the date from the backend
-                //here is where you can write the math logic
-                //take your newFriend and compare it to all the friends in the DB
-                //we need to build 1 loop to check all the "friends" we have in our db
-                //inside our first loop we need to write a second loop that compares all the scores from the current friend against the newFriend
-                //current friend difference
-                // $.get("/api/friends")
-                // .then(function)
-            });
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val().trim(),
+                    $("#question2").val().trim(),
+                    $("#question3").val().trim(),
+                    $("#question4").val().trim(),
+                    $("#question5").val().trim(),
+                    $("#question6").val().trim(),
+                    $("#question7").val().trim(),
+                    $("#question8").val().trim(),
+                    $("#question9").val().trim(),
+                    $("#question10").val().trim(),
+                ]
+            }
+
+            // Question: What does this code do??
+            $.post("/api/friends", newFriend,
+                function (data) {
+                    console.log(data.name);
+                });
         });
-      </script>
-    
+    </script>
+
 </body>
 
 </html>
