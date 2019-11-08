@@ -236,6 +236,7 @@
             $.post("/api/friends", newFriend,
                 function (data) {
                     console.log(data.name);
+                    alert("Meet your new friend, " + data.name)
                 });
         });
     </script>
