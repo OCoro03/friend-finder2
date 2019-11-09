@@ -6,4 +6,4 @@ User Experience: The user accesses the website and is greeted with a welcome pag
 
 Issues: Currently working on the math to allow friend connections. Without it I am unable to connect one user with another. 
 
-![Image description](desktop/survey.png)
+![Image of app](images/Friend-finder.png)
