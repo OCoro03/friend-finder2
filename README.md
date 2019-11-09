@@ -6,4 +6,5 @@ User Experience: The user accesses the website and is greeted with a welcome pag
 
 Issues: Currently working on the math to allow friend connections. Without it I am unable to connect one user with another. 
 
-![Image of friend](/images/Friend-finder.png)
+<img width="1278" alt="Friend-finder" src="https://user-images.githubusercontent.com/54198484/68535537-80e06500-0309-11ea-85de-26828b738b3c.png">
+
