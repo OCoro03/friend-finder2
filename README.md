@@ -6,4 +6,4 @@ User Experience: The user accesses the website and is greeted with a welcome pag
 
 Issues: Currently working on the math to allow friend connections. Without it I am unable to connect one user with another. 
 
-![Image of friend](/images/Friend-finder.png)
+<iframe src="https://giphy.com/embed/WtU5kNavid7NCJ6tx7" width="480" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/WtU5kNavid7NCJ6tx7">via GIPHY</a></p>
